@@ -12,6 +12,7 @@ prediction : [memo/webcam-pix2pix-tensorflow](https://github.com/memo/webcam-pix
 
 * [x] simple training
 * [ ] re-training using [this technique](https://magenta.tensorflow.org/nfp_p2p)
+* [ ] run realtime
 
 ## Demo
 
@@ -96,3 +97,7 @@ ffmpeg -i movie.mp4 -vf scale=640:-1 m.mp4
 * [memo/webcam-pix2pix-tensorflow](https://github.com/memo/webcam-pix2pix-tensorflow)  
 * [magenta/magenta/video/next_frame_prediction_pix2pix](https://github.com/tensorflow/magenta/tree/master/magenta/video/next_frame_prediction_pix2pix)  
 * [A train window](https://magenta.tensorflow.org/nfp_p2p)  
+
+### Licence
+
+MIT
