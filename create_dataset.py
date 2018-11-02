@@ -15,3 +15,7 @@ if __name__ == '__main__':
     args = parser.parse_args()
 
     movie2img(args.src_path, args.dst_path, args.fps, args.format)
+
+    cmd = 'python rename.py ' + args.dst_path
+    print(cmd)
+    subprocess.call(cmd.split())
