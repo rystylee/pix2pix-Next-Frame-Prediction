@@ -11,7 +11,7 @@ prediction : [memo/webcam-pix2pix-tensorflow](https://github.com/memo/webcam-pix
 ## ToDo
 
 * [x] simple training
-* [ ] re training using [this technique](https://magenta.tensorflow.org/nfp_p2p)
+* [ ] re-training using [this technique](https://magenta.tensorflow.org/nfp_p2p)
 
 ## Demo
 
@@ -35,7 +35,7 @@ python create_dataset.py data/XXX.mp4 data/XXX 30 png
 2. Resize source images
 
 ```
-python tools/process.py --input_dir data/XXX --operation resize --output_dir data/resized
+python pix2pix/tools/process.py --input_dir data/XXX --operation resize --output_dir data/resized
 ```
 
 3. Copy the file at step2
@@ -55,19 +55,19 @@ python rename.py data/resized2
 5. Combine resized 2 set of images
 
 ```
-python tools/process.py --input_dir data/resized --b_dir data/resized2 --operation combine --output_dir data/combined
+python pix2pix/tools/process.py --input_dir data/resized --b_dir data/resized2 --operation combine --output_dir data/combined
 ```
 
 * Split into train/val set
 
 ```
-python tools/split.py --dir data/combined
+python pix2pix/tools/split.py --dir data/combined
 ```
 
 ### Training
 
 ```
-python pix2pix.py --mode train --output_dir dst_path --max_epochs 200 --input_dir data_path --which_direction AtoB
+python pix2pix/pix2pix.py --mode train --output_dir dst_path --max_epochs 200 --input_dir data_path --which_direction AtoB
 ```
 
 ### Generate image sequence
@@ -80,7 +80,7 @@ python generate.py models/XXX.json data/generate_src data/generate_dst num_itr
 
 1. combine
 ```
-ffmpeg -r 30 -i %04d.png -vcodec libx264 -pix_fmt yuv420p -r 30 movie.mp4
+ffmpeg -r 30 -i dst/%04d.png -vcodec libx264 -pix_fmt yuv420p -r 30 movie.mp4
 ```
 
 2. Resize
