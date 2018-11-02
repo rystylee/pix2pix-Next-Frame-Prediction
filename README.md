@@ -73,14 +73,14 @@ python pix2pix/pix2pix.py --mode train --output_dir dst_path --max_epochs 200 --
 ### Generate image sequence
 
 ```
-python generate.py models/XXX.json data/generate_src data/generate_dst num_itr
+python generate.py models/XXX.json generate/src generate/dst num_itr
 ```
 
 ### Generate movie
 
 1. combine
 ```
-ffmpeg -r 30 -i dst/%04d.png -vcodec libx264 -pix_fmt yuv420p -r 30 movie.mp4
+ffmpeg -r 30 -i generate/dst/%04d.png -vcodec libx264 -pix_fmt yuv420p -r 30 movie.mp4
 ```
 
 2. Resize
